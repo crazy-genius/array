@@ -77,7 +77,7 @@ func Length(a []float64) float64 {
 	return math.Sqrt(Dot(a, a))
 }
 
-func Norm(a []float64) []float64 {
+func Normalize(a []float64) []float64 {
 	length := Length(a)
 
 	lnVec := make([]float64, len(a))
