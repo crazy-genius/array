@@ -1,5 +1,7 @@
 package array
 
+import "math"
+
 func Apply(op func(a, b float64) float64, a, b []float64) []float64 {
 	assertSize(a, b)
 
@@ -69,6 +71,21 @@ func MatrixTranspose(matrix [][]float64) [][]float64 {
 	}
 
 	return transposed
+}
+
+func Length(a []float64) float64 {
+	return math.Sqrt(Dot(a, a))
+}
+
+func Norm(a []float64) []float64 {
+	length := Length(a)
+
+	lnVec := make([]float64, len(a))
+	for i := 0; i < len(a); i++ {
+		lnVec[i] = length
+	}
+
+	return Divide(a, lnVec)
 }
 
 func assertSize(a, b []float64) {
